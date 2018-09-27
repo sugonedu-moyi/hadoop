@@ -13,7 +13,9 @@ public class WordCountMapper implements MapTask {
         ArrayList<Pair> out = new ArrayList<Pair>();
         String[] words = value.split("[^a-zA-Z0-9]+");
         for (String word : words) {
-            out.add(new Pair(word, "1"));
+            if (!word.isEmpty()) {
+                out.add(new Pair(word, "1"));
+            }
         }
         return out;
     }

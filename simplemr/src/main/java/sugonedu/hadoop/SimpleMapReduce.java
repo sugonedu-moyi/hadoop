@@ -30,6 +30,7 @@ public class SimpleMapReduce {
             } else {
                 list = new ArrayList<>();
             }
+            list.add(p.value);
             result.put(p.key, list);
         }
         return result;
