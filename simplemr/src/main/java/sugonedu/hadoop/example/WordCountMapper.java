@@ -1,0 +1,21 @@
+package sugonedu.hadoop.example;
+
+import sugonedu.hadoop.MapTask;
+import sugonedu.hadoop.Pair;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class WordCountMapper implements MapTask {
+
+    @Override
+    public List<Pair> map(String key, String value) {
+        ArrayList<Pair> out = new ArrayList<Pair>();
+        String[] words = value.split("[^a-zA-Z0-9]+");
+        for (String word : words) {
+            out.add(new Pair(word, "1"));
+        }
+        return out;
+    }
+
+}
