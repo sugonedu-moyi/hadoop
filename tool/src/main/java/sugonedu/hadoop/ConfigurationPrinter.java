@@ -12,6 +12,10 @@ public class ConfigurationPrinter extends Configured implements Tool {
     for (Entry<String, String> entry: conf) {
       System.out.printf("%s=%s\n", entry.getKey(), entry.getValue());
     }
+    System.out.println("\n--------------------------------------------------\n");
+    for (String a: args) {
+      System.out.println(a);
+    }
     return 0;
   }
   
