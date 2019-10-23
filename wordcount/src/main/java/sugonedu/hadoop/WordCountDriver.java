@@ -25,8 +25,8 @@ public class WordCountDriver extends Configured implements Tool {
         FileInputFormat.addInputPath(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
         job.setMapperClass(WordCountMapper.class);
-        job.setCombinerClass();
-        job.setReducerClass();
+        job.setCombinerClass(WordCountReducer.class);
+        job.setReducerClass(WordCountReducer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
         return job.waitForCompletion(true) ? 0 : 1;
